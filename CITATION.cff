@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the archived release and the associated manuscript."
+title: "Reproducible analysis code for OA-OC cross-disease transcriptomics"
+type: software
+version: 1.0.0
+date-released: 2026-08-10
+repository-code: "https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics"
+license: MIT
+authors:
+  - family-names: Shi
+    given-names: Junhui
+  - family-names: Liu
+    given-names: Mengxiang
+  - family-names: Inayatilla
+    given-names: Repkat
+  - family-names: Li
+    given-names: Ke
+  - family-names: Chen
+    given-names: Lei
+    email: 564386249@qq.com
+keywords:
+  - osteoarthritis
+  - ovarian cancer
+  - transcriptomics
+  - single-cell RNA sequencing
+  - reproducible research
+abstract: "Configuration-driven analysis code supporting a multi-layer transcriptomic comparison of osteoarthritis and ovarian cancer using public GEO datasets."

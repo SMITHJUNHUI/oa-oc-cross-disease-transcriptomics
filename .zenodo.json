@@ -1,0 +1,37 @@
+{
+  "title": "Reproducible analysis code for OA-OC cross-disease transcriptomics",
+  "upload_type": "software",
+  "description": "Configuration-driven analysis code supporting the manuscript Shared molecular features between osteoarthritis and ovarian cancer revealed by multi-layer transcriptomic analyses. The repository contains versioned workflows, dependency records, tests and source-data accession metadata for public GEO datasets.",
+  "creators": [
+    {
+      "name": "Shi, Junhui",
+      "affiliation": "Department of Orthopedics Center, The First Affiliated Hospital of Shihezi University, Shihezi University"
+    },
+    {
+      "name": "Liu, Mengxiang",
+      "affiliation": "Department of Orthopedics Center, The First Affiliated Hospital of Shihezi University, Shihezi University"
+    },
+    {
+      "name": "Inayatilla, Repkat",
+      "affiliation": "Department of Orthopedics Center, The First Affiliated Hospital of Shihezi University, Shihezi University"
+    },
+    {
+      "name": "Li, Ke",
+      "affiliation": "Department of Orthopedics Center, The First Affiliated Hospital of Shihezi University, Shihezi University"
+    },
+    {
+      "name": "Chen, Lei",
+      "affiliation": "Department of Orthopedics Center, The First Affiliated Hospital of Shihezi University, Shihezi University"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.0.0",
+  "keywords": [
+    "osteoarthritis",
+    "ovarian cancer",
+    "cross-disease transcriptomics",
+    "single-cell RNA sequencing",
+    "reproducible research"
+  ]
+}

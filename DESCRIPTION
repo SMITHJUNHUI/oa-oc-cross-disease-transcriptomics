@@ -1,0 +1,66 @@
+Package: ocoa.reproducible
+Type: Project
+Title: Reproducible OC-OA Cross-Disease Bioinformatics Study
+Version: 1.0.0
+Authors@R: c(
+    person("Junhui", "Shi", role = "aut"),
+    person("Mengxiang", "Liu", role = "aut"),
+    person("Repkat", "Inayatilla", role = "aut"),
+    person("Ke", "Li", role = "aut"),
+    person("Lei", "Chen", role = c("aut", "cre"), email = "564386249@qq.com")
+    )
+Description: A configuration-driven, checkpointed analysis project for an
+    ovarian cancer and osteoarthritis cross-disease transcriptomic study.
+License: MIT + file LICENSE
+URL: https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics
+BugReports: https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics/issues
+Encoding: UTF-8
+Depends:
+    R (>= 4.5.0)
+Imports:
+    AnnotationDbi,
+    Biobase,
+    BiocParallel,
+    BiocSingular,
+    bluster,
+    CellChat,
+    clusterProfiler,
+    data.table,
+    digest,
+    edgeR,
+    enrichplot,
+    GEOquery,
+    ggplot2,
+    glmnet,
+    hgu133plus2.db,
+    igraph,
+    jsonlite,
+    limma,
+    Matrix,
+    org.Hs.eg.db,
+    pheatmap,
+    pROC,
+    randomForest,
+    readxl,
+    rhdf5,
+    S4Vectors,
+    scater,
+    scDblFinder,
+    scran,
+    scuttle,
+    SingleR,
+    SingleCellExperiment,
+    SummarizedExperiment,
+    survival,
+    survminer,
+    timeROC,
+    UCell,
+    uwot,
+    WGCNA,
+    yaml
+Suggests:
+    BiocManager,
+    MRPRESSO,
+    renv,
+    testthat,
+    TwoSampleMR

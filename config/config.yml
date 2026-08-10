@@ -1,0 +1,252 @@
+project:
+  name: "OC_OA_cross_disease_study"
+  seed: 20260726
+  output_dir: "results"
+  cache_dir: "results/cache"
+  timezone: "Asia/Shanghai"
+  strict: true
+  checksum_max_mb: 50
+
+modules:
+  enrichment: true
+  wgcna: true
+  machine_learning: true
+  validation: true
+  immune: true
+  tcga: true
+  regulatory: true
+  drug: true
+  mr: false
+  single_cell: true
+  single_cell_downstream: true
+
+differential:
+  fdr: 0.05
+  log2_fc: 1.0
+  fallback_log2_fc: 0.5
+  require_directional_concordance: false
+
+wgcna:
+  top_variable_genes: 5000
+  min_module_size: 30
+  merge_cut_height: 0.25
+  soft_power: 0
+  scale_free_r2: 0.80
+  max_block_size: 6000
+  threads: 1
+
+machine_learning:
+  minimum_candidate_genes: 5
+  maximum_candidate_genes: 100
+  minimum_final_genes: 2
+  random_forest_trees: 500
+  random_forest_top_n: 20
+  lasso_rule: "lambda.1se"
+  class_balance: "inverse_frequency"
+
+enrichment:
+  p_adjust_method: "BH"
+  pvalue_cutoff: 0.05
+  qvalue_cutoff: 0.20
+  gsea_pvalue_cutoff: 0.25
+  gsea_min_size: 10
+  gsea_max_size: 500
+
+datasets:
+  oa_train:
+    id: "GSE114007"
+    disease: "OA"
+    role: "train"
+    required: true
+    loader: "split_tables"
+    case_path: "data/raw/bulk/GSE114007_OA_normalized.counts.txt.gz"
+    control_path: "data/raw/bulk/GSE114007_normal_normalized.counts.txt.gz"
+    gene_column: "symbol"
+    exclude_column_patterns:
+      - "^Average\\s"
+      - "^Max$"
+    transform: "none"
+
+  oc_train:
+    id: "GSE18520"
+    disease: "OC"
+    role: "train"
+    required: true
+    loader: "geo_series"
+    series_path: "data/raw/bulk/GSE18520_series_matrix.txt"
+    annotation_method: "hgu133plus2"
+    transform: "auto"
+    normal_patterns:
+      - "Normal Ovary"
+      - "normal ovary"
+    disease_patterns:
+      - "Ovarian Tumor"
+
+  oa_validation_1:
+    id: "GSE117999"
+    disease: "OA"
+    role: "validation"
+    required: true
+    loader: "geo_series"
+    series_path: "data/raw/bulk/GSE117999_series_matrix.txt.gz"
+    annotation_method: "gpl_soft"
+    annotation_path: "data/raw/annotation/GPL20844_family.soft.gz"
+    transform: "auto"
+    max_sample_missing_fraction: 0.05
+    normal_patterns:
+      - "arthroscopic partial meniscectomy"
+    disease_patterns:
+      - "osteoarthritis"
+
+  oa_validation_2:
+    id: "GSE82107"
+    disease: "OA"
+    role: "validation"
+    required: true
+    loader: "geo_series"
+    series_path: "data/raw/bulk/GSE82107_series_matrix.txt.gz"
+    annotation_method: "hgu133plus2"
+    transform: "auto"
+    normal_patterns:
+      - "^HC-"
+    disease_patterns:
+      - "^OA-"
+
+  oc_validation_1:
+    id: "GSE54388"
+    disease: "OC"
+    role: "validation"
+    required: true
+    loader: "geo_series"
+    series_path: "data/raw/bulk/GSE54388_series_matrix.txt.gz"
+    annotation_method: "hgu133plus2"
+    transform: "auto"
+    normal_patterns:
+      - "Human ovarian surface epithelium"
+    disease_patterns:
+      - "Tumor epithelial component"
+
+  oc_validation_2:
+    id: "GSE12470"
+    disease: "OC"
+    role: "validation"
+    required: true
+    loader: "geo_series"
+    series_path: "data/raw/bulk/GSE12470_series_matrix.txt.gz"
+    annotation_method: "gpl_soft"
+    annotation_path: "data/raw/annotation/GPL887_family.soft.gz"
+    transform: "log2_shift"
+    max_sample_missing_fraction: 0.05
+    normal_patterns:
+      - "Peritoneum normal"
+    disease_patterns:
+      - "Advanced serous ovarian cancer"
+      - "Early serous ovarian cancer"
+
+gene_sets:
+  hallmark: "data/raw/gene_sets/h.all.v2026.1.Hs.symbols.gmt"
+  canonical_pathways: "data/raw/gene_sets/c2.cp.v2026.1.Hs.symbols.gmt"
+  gene_ontology: "data/raw/gene_sets/c5.go.v2026.1.Hs.symbols.gmt"
+  oncogenic_signatures: "data/raw/gene_sets/c6.all.v2026.1.Hs.symbols.gmt"
+
+tcga:
+  expression_path: "data/raw/tcga/data_mrna_seq_v2_rsem.txt"
+  clinical_path: "data/raw/tcga/data_clinical_patient.txt"
+  time_points_months:
+    - 12
+    - 36
+    - 60
+
+regulatory:
+  mirtarbase_path: "data/raw/regulatory/hsa_MTI.csv"
+  knocktf_gmt_path: "data/raw/regulatory/human_500diff.gmt"
+  knocktf_table_path: "data/raw/regulatory/knocktf_v2_main_human.txt"
+
+drug:
+  dgidb_path: "data/raw/drug/interactions.tsv"
+  ctd_path: "data/raw/drug/CTD_chem_gene_ixns.csv.gz"
+  approved_only: false
+
+mr:
+  opengwas_token_env: "OPENGWAS_JWT"
+  exposure_ids:
+    - "ebi-a-GCST007092"
+  outcome_ids:
+    - "ieu-a-1120"
+  clump_kb: 10000
+  clump_r2: 0.001
+  pvalue_threshold: 0.00000005
+
+single_cell:
+  scope: "qc_gate_only"
+  python_executable: ""
+  allow_partial: true
+  minimum_validated_datasets: 1
+  lower_nmads: 3
+  upper_nmads: 5
+  mt_nmads: 3
+  run_doublet_detection: true
+  require_ambient_assessment: true
+  downstream_analysis: true
+  datasets:
+    - id: "GSE255460"
+      adapter: "gse255460_wide_counts"
+      disease: "OA"
+      organism: "Homo sapiens"
+      tissue: "knee articular cartilage"
+      assay: "scRNA-seq raw UMI counts"
+      batch_column: "ID"
+      raw_droplets_available: false
+      required: true
+      metadata_path: "data/raw/single_cell/GSE255460_metadata.csv.gz"
+      counts_archive: "data/raw/single_cell/GSE255460_sc_counts.txt.tar.gz"
+    - id: "GSE104782"
+      adapter: "gse104782_umi_counts"
+      disease: "OA"
+      organism: "Homo sapiens"
+      tissue: "articular cartilage"
+      assay: "single-cell RNA-seq raw UMI counts"
+      batch_column: "donor_proxy"
+      raw_droplets_available: false
+      required: true
+      counts_path: "data/raw/single_cell/GSE104782_allcells_UMI_count.txt.gz"
+    - id: "GSE169454"
+      adapter: "gse169454_tenx_raw_tar"
+      disease: "OA"
+      organism: "Homo sapiens"
+      tissue: "articular cartilage"
+      assay: "10x 3-prime scRNA-seq raw UMI counts"
+      batch_column: "GSM"
+      raw_droplets_available: true
+      required: true
+      archive_path: "data/raw/single_cell/GSE169454_RAW.tar"
+    - id: "GSE180661"
+      adapter: "gse180661_h5_csr"
+      disease: "OC"
+      organism: "Homo sapiens"
+      tissue: "high-grade serous ovarian cancer specimens"
+      assay: "scRNA-seq raw UMI counts in backed CSR H5"
+      batch_column: "sample"
+      raw_droplets_available: false
+      required: true
+      cells_path: "data/raw/single_cell/GSE180661_GEO_cells.tsv.gz"
+      matrix_h5_path: "data/raw/single_cell/GSE180661_matrix.h5"
+    - id: "GSE154600"
+      adapter: "tenx_tar_gse154600"
+      disease: "OC"
+      organism: "Homo sapiens"
+      tissue: "high-grade serous ovarian cancer tumors"
+      assay: "10x 3-prime scRNA-seq raw UMI counts"
+      batch_column: "GSM"
+      raw_droplets_available: false
+      required: true
+      archive_path: "data/raw/single_cell/GSE154600_RAW.tar"
+
+single_cell_downstream:
+  gse104782_cluster_path: "data/raw/single_cell/GSE104782/GSE104782_Table_Cell_quality_information_and_clustering_information.xlsx"
+  hvg_n: 3000
+  pca_n: 30
+  neighbors_k: 20
+  visualization_max_cells: 60000
+  minimum_pseudobulk_cells: 20
+  minimum_group_replicates: 3

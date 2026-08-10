@@ -1,0 +1,32 @@
+# Machine-specific configuration and credentials
+config/local.yml
+.env
+.env.*
+*.pem
+*.key
+
+# Public inputs and generated outputs
+data/
+raw_data/
+results/
+cache/
+checkpoints/
+*.h5
+*.h5ad
+*.rds
+*.rda
+*.RData
+
+# R and Python transient files
+.Rhistory
+.Ruserdata
+.Rproj.user/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

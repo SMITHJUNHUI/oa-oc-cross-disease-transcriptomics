@@ -1,0 +1,30 @@
+seed: 20260726
+
+deg:
+  fdr_thresholds: [0.01, 0.05]
+  absolute_log2fc_thresholds: [0.5, 1.0, 1.5]
+  primary_fdr: 0.05
+  primary_absolute_log2fc: 1.0
+
+wgcna:
+  soft_power_offsets: [-2, 0, 2]
+  bootstrap_replicates: 2000
+
+machine_learning:
+  repeated_cv_replicates: 50
+  outer_folds: 5
+  inner_folds: 5
+  feature_screen_top_n: 100
+  random_forest_trees: 300
+  random_forest_tuning_trees: 150
+  random_forest_mtry_candidates: [2, 5, 10]
+  random_forest_top_n: 20
+
+tcga:
+  optimism_bootstrap_replicates: 200
+  lasso_selection_bootstrap_replicates: 200
+  lasso_inner_folds: 5
+
+external_validation:
+  robust_auc_threshold: 0.60
+  permutation_replicates: 1000

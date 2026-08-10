@@ -1,0 +1,14 @@
+accession	disease	data_layer	role
+GSE114007	OA	bulk tissue	discovery
+GSE117999	OA	bulk tissue	external validation
+GSE82107	OA	bulk tissue	external validation
+GSE18520	OC	bulk tissue	discovery
+GSE54388	OC	bulk tissue	external validation
+GSE12470	OC	bulk tissue	external validation
+GSE104782	OA	single-cell RNA sequencing	quality-control audit
+GSE169454	OA	single-cell RNA sequencing	quality-control audit
+GSE255460	OA	single-cell RNA sequencing	main localization atlas
+GSE154600	OC	single-cell RNA sequencing	main localization atlas
+GSE180661	OC	single-cell RNA sequencing	quality-control audit
+GSE48556	OA	peripheral blood	blood validation
+GSE31682	OC	blood-cell fraction	blood validation
