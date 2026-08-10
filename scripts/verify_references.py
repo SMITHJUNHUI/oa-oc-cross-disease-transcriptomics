@@ -64,6 +64,23 @@ def crossref(doi: str, retries: int = 3) -> dict:
     raise RuntimeError("unreachable")
 
 
+def datacite(doi: str, retries: int = 3) -> dict:
+    encoded = urllib.parse.quote(doi, safe="")
+    request = urllib.request.Request(
+        f"https://api.datacite.org/dois/{encoded}",
+        headers={"User-Agent": "OC-OA-reference-audit/1.0 (mailto:564386249@qq.com)"},
+    )
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(request, timeout=30) as response:
+                return json.loads(response.read().decode("utf-8"))["data"]["attributes"]
+        except (urllib.error.URLError, TimeoutError):
+            if attempt + 1 == retries:
+                raise
+            time.sleep(1.5 * (attempt + 1))
+    raise RuntimeError("unreachable")
+
+
 def verify_item(pair: tuple[int, str]) -> dict:
     number, record = pair
     doi_match = DOI_RE.search(record)
@@ -88,7 +105,42 @@ def verify_item(pair: tuple[int, str]) -> dict:
     if not doi:
         return item
     try:
-        metadata = crossref(doi)
+        try:
+            metadata = crossref(doi)
+            source = "crossref"
+        except urllib.error.HTTPError as exc:
+            if exc.code != 404:
+                raise
+            metadata = datacite(doi)
+            source = "datacite"
+        if source == "datacite":
+            title = ((metadata.get("titles") or [{}])[0].get("title") or "")
+            journal = metadata.get("publisher") or ""
+            creators = metadata.get("creators") or []
+            first_author = (creators[0].get("familyName") or creators[0].get("name") or "") if creators else ""
+            year = metadata.get("publicationYear")
+            similarity = SequenceMatcher(None, normalize(title), normalize(record)).ratio()
+            title_present = bool(normalize(title)) and normalize(title) in normalize(record)
+            item.update(
+                {
+                    "status": "verified" if title_present or similarity >= 0.35 else "needs_fix",
+                    "title_similarity": round(similarity, 3),
+                    "crossref_title": title,
+                    "crossref_first_author": first_author,
+                    "crossref_year": year,
+                    "crossref_journal": journal,
+                    "crossref_journal_short": journal,
+                    "crossref_authors": [
+                        {
+                            "given": creator.get("givenName", ""),
+                            "family": creator.get("familyName", ""),
+                            "name": creator.get("name", ""),
+                        }
+                        for creator in creators
+                    ],
+                }
+            )
+            return item
         title = (metadata.get("title") or [""])[0]
         journal = (metadata.get("container-title") or [""])[0]
         authors = metadata.get("author") or []
@@ -161,7 +213,7 @@ def main() -> None:
         "# Reference verification report",
         "",
         f"- References: {len(references)}",
-        f"- DOI/Crossref verified: {counts['verified']}",
+        f"- DOI registry verified (Crossref/DataCite): {counts['verified']}",
         f"- Potential metadata mismatch: {counts['needs_fix']}",
         f"- Unverifiable/no DOI: {counts['unverifiable']}",
         f"- All references cited: {not payload['uncited_references']}",

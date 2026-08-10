@@ -5,6 +5,7 @@ type: software
 version: 1.0.0
 date-released: 2026-08-10
 repository-code: "https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics"
+doi: 10.5281/zenodo.21876012
 license: MIT
 authors:
   - family-names: Shi

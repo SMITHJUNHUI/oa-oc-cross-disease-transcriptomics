@@ -74,8 +74,8 @@ def transform_references(text: str) -> str:
             record,
         )
         records.append(f"{new_number}. {record}")
-    if len(records) != 68:
-        raise RuntimeError(f"Expected 68 BMC references, found {len(records)}")
+    if len(records) != 69:
+        raise RuntimeError(f"Expected 69 BMC references, found {len(records)}")
     return "\n".join(records)
 
 
@@ -651,7 +651,7 @@ Not applicable.
 
 ### Availability of data and materials
 
-All datasets analysed in this study are publicly available from the NCBI Gene Expression Omnibus (https://www.ncbi.nlm.nih.gov/geo/) under accessions GSE114007, GSE117999, GSE82107, GSE18520, GSE54388, GSE12470, GSE104782, GSE169454, GSE255460, GSE154600, GSE180661, GSE48556 and GSE31682. The derived data supporting the conclusions are supplied in Additional file 1, and the supplementary figures are supplied in Additional file 2. Versioned analysis scripts, configuration templates, source manifests and execution instructions are supplied in Additional file 3 and are publicly available at https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics. No new restricted-access dataset was generated for this study. The reporting structure supports findable, accessible, interoperable and reusable data stewardship [61].
+All datasets analysed in this study are publicly available from the NCBI Gene Expression Omnibus (https://www.ncbi.nlm.nih.gov/geo/) under accessions GSE114007, GSE117999, GSE82107, GSE18520, GSE54388, GSE12470, GSE104782, GSE169454, GSE255460, GSE154600, GSE180661, GSE48556 and GSE31682. The derived data supporting the conclusions are supplied in Additional file 1, and the supplementary figures are supplied in Additional file 2. Versioned analysis scripts, configuration templates, source manifests and execution instructions are supplied in Additional file 3 and are publicly available at https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics. The immutable v1.0.0 release is archived in Zenodo (doi:10.5281/zenodo.21876012) [70]. No new restricted-access dataset was generated for this study. The reporting structure supports findable, accessible, interoperable and reusable data stewardship [61].
 
 ### Competing interests
 
@@ -782,7 +782,7 @@ def main() -> None:
     )
 
     citations = cited_numbers(body)
-    expected = set(range(1, 69))
+    expected = set(range(1, 70))
     if citations != expected:
         raise RuntimeError(
             f"Citation coverage mismatch: missing={sorted(expected-citations)} extra={sorted(citations-expected)}"
@@ -840,7 +840,7 @@ Checked against the official BMC Medical Genomics Research Article and submissio
 - Supplementary materials consolidated into three sequentially cited additional files.
 - Supplementary figure directory and unprovided/low-priority STRING network materials removed.
 - Main manuscript formatted as a double-spaced, page-numbered and continuously line-numbered DOCX.
-- References follow the BMC Vancouver sequence, are numbered in order of first appearance, and all 68 DOI records have been verified against Crossref.
+- References follow the BMC Vancouver sequence, are numbered in order of first appearance, and all 69 DOI records have been verified against Crossref or DataCite.
 - Main Figures 1-7, Supplementary Figures S1-S5 and Additional files 1-3 are all cited in the manuscript.
 - Transparent statement on generative AI-assisted tools included in Methods.
 - GEO accessions are stated, and a peer-review-ready reproducible code archive is supplied as Additional file 3.
@@ -850,7 +850,7 @@ Checked against the official BMC Medical Genomics Research Article and submissio
 
 ## Author sign-off required before upload
 
-- Public repository: https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics is public and has been verified. The archival DOI remains pending until the GitHub repository is enabled in Zenodo and the v1.0.0 release is published.
+- Public repository and archive verified: https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics; immutable v1.0.0 DOI: https://doi.org/10.5281/zenodo.21876012; all-version concept DOI: https://doi.org/10.5281/zenodo.21876011.
 - [ ] Funding: Lei Chen confirms that 2023CB008-34, ZZZC2023050, CZ001222 and LC2024009 supported this OA-OC study and that the no-role statement is accurate. Signature/date: __________
 - [x] Junhui Shi (2223727941@qq.com): final manuscript approval, authorship contribution and no competing interests confirmed by the authors.
 - [x] Mengxiang Liu (2877992646@qq.com): final manuscript approval, equal first authorship, authorship contribution and no competing interests confirmed by the authors.

@@ -1,5 +1,7 @@
 # OA-OC cross-disease transcriptomics
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21876011.svg)](https://doi.org/10.5281/zenodo.21876011)
+
 This repository accompanies the manuscript *Shared molecular features between osteoarthritis and ovarian cancer revealed by multi-layer transcriptomic analyses*.
 
 **Authors:** Junhui Shi, Mengxiang Liu, Repkat Inayatilla, Ke Li and Lei Chen. Junhui Shi and Mengxiang Liu contributed equally. Lei Chen is the corresponding author.
@@ -53,7 +55,7 @@ All expression datasets used by the workflow are public GEO records. Their acces
 
 ## Citation and archival status
 
-Use the metadata in `CITATION.cff` when citing this software. The versioned source repository is available at https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics. A DOI will be added after a tagged release is archived through Zenodo; no DOI has been assigned yet.
+Use the metadata in `CITATION.cff` when citing this software. The versioned source repository is available at https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics. The immutable v1.0.0 release is archived at https://doi.org/10.5281/zenodo.21876012. The all-version concept DOI is https://doi.org/10.5281/zenodo.21876011.
 
 ## Licence
 

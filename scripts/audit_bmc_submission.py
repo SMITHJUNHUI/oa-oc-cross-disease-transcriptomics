@@ -119,9 +119,9 @@ def main() -> None:
                 first_appearance.append(number)
     checks["reference_count"] = reference_count
     checks["citation_coverage"] = [min(citations), max(citations), len(citations)]
-    if reference_count != 68 or citations != set(range(1, 69)):
+    if reference_count != 69 or citations != set(range(1, 70)):
         errors.append("Reference numbering or in-text citation coverage is incomplete")
-    checks["references_in_first_appearance_order"] = first_appearance == list(range(1, 69))
+    checks["references_in_first_appearance_order"] = first_appearance == list(range(1, 70))
     if not checks["references_in_first_appearance_order"]:
         errors.append("References are not numbered in order of first appearance")
     dois = [
@@ -132,7 +132,7 @@ def main() -> None:
     ]
     checks["reference_doi_count"] = len(dois)
     checks["unique_reference_doi_count"] = len({doi.lower() for doi in dois})
-    if len(dois) != 68 or len({doi.lower() for doi in dois}) != 68:
+    if len(dois) != 69 or len({doi.lower() for doi in dois}) != 69:
         errors.append("Every reference must have one unique DOI")
 
     main_figure_refs = {
