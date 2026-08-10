@@ -134,6 +134,10 @@ def main() -> None:
     checks["unique_reference_doi_count"] = len({doi.lower() for doi in dois})
     if len(dois) != 69 or len({doi.lower() for doi in dois}) != 69:
         errors.append("Every reference must have one unique DOI")
+    checks["public_github_repository_present"] = "https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics" in body
+    checks["immutable_zenodo_doi_present"] = "10.5281/zenodo.21876012" in body
+    if not checks["public_github_repository_present"] or not checks["immutable_zenodo_doi_present"]:
+        errors.append("The verified GitHub repository URL and immutable Zenodo DOI must be present")
 
     main_figure_refs = {
         int(value) for value in re.findall(r"\bFigure ([1-7])(?:[A-Z](?:-[A-Z])?)?\b", body)
@@ -367,7 +371,7 @@ The submission now follows the BMC Medical Genomics Research Article structure, 
 
 1. Confirm that the four listed grants supported this OA-OC analysis and that the funder-role statement is accurate.
 2. Final approval and the absence of competing interests have been confirmed for all five authors.
-3. If the authors choose to mirror Additional file 3 to GitHub and Zenodo, insert the final public URL and DOI only after the deposit exists; no identifier has been invented in this package.
+3. The public GitHub repository and immutable Zenodo v1.0.0 DOI have been verified and inserted in the manuscript.
 
 The author sequence is Junhui Shi, Mengxiang Liu, Repkat Inayatilla, Ke Li and Lei Chen. Junhui Shi and Mengxiang Liu are marked as equal contributors and co-first authors. Repkat Inayatilla is listed immediately before Ke Li. All five authors approved the final manuscript and declared no competing interests. Hongtao Yu is absent from the submission files.
 

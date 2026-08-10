@@ -796,7 +796,7 @@ def main() -> None:
 
     cover_letter = """# Cover letter
 
-10 August 2026
+11 August 2026
 
 Editorial Office  
 BMC Medical Genomics
@@ -807,7 +807,7 @@ Please consider our Research Article, “Shared molecular features between osteo
 
 We analysed osteoarthritis and ovarian cancer separately before comparing their transcriptional changes. The analysis identified 286 genes shared by the two discovery tissues, with enrichment for matrix, immune, stress and cell-cycle processes. Independent cohorts tested reproducibility, and single-cell data placed selected genes in disease-specific cellular environments. G0S2 was the only tissue-concordant gene that passed false-discovery-rate control in both blood cohorts.
 
-The manuscript is relevant to BMC Medical Genomics because it examines a cross-disease molecular signal across tissue, single-cell and blood datasets while keeping the two diseases analytically separate. Source-data tables, supplementary figures, dataset accessions and the reproducible analysis materials accompany the submission.
+The manuscript is relevant to BMC Medical Genomics because it examines a cross-disease molecular signal across tissue, single-cell and blood datasets while keeping the two diseases analytically separate. Source-data tables, supplementary figures and dataset accessions accompany the submission. The reproducible analysis code is public on GitHub and the immutable v1.0.0 release is archived in Zenodo (doi:10.5281/zenodo.21876012).
 
 The manuscript has not been published previously and is not under consideration by another journal. All authors have read and approved the submitted version and agree to its submission to BMC Medical Genomics. The authors declare no competing interests. The work uses de-identified public datasets and did not recruit new participants. We are not aware of any issues relating to journal policies.
 
@@ -824,7 +824,7 @@ Telephone: 13579758836
 
     checklist = """# BMC Medical Genomics pre-submission checklist
 
-Checked against the official BMC Medical Genomics Research Article and submission-guidelines pages on 10 August 2026.
+Checked against the official BMC Medical Genomics Research Article and submission-guidelines pages on 11 August 2026.
 
 - Research Article requirements: https://link.springer.com/journal/12920/submission-guidelines/research-article
 - Journal submission guidelines: https://link.springer.com/journal/12920/submission-guidelines
