@@ -651,7 +651,7 @@ Not applicable.
 
 ### Availability of data and materials
 
-All datasets analysed in this study are publicly available from the NCBI Gene Expression Omnibus (https://www.ncbi.nlm.nih.gov/geo/) under accessions GSE114007, GSE117999, GSE82107, GSE18520, GSE54388, GSE12470, GSE104782, GSE169454, GSE255460, GSE154600, GSE180661, GSE48556 and GSE31682. The derived data supporting the conclusions are supplied in Additional file 1, and the supplementary figures are supplied in Additional file 2. Versioned analysis scripts, configuration templates, source manifests and execution instructions are supplied in Additional file 3. No new restricted-access dataset was generated for this study. The reporting structure supports findable, accessible, interoperable and reusable data stewardship [61].
+All datasets analysed in this study are publicly available from the NCBI Gene Expression Omnibus (https://www.ncbi.nlm.nih.gov/geo/) under accessions GSE114007, GSE117999, GSE82107, GSE18520, GSE54388, GSE12470, GSE104782, GSE169454, GSE255460, GSE154600, GSE180661, GSE48556 and GSE31682. The derived data supporting the conclusions are supplied in Additional file 1, and the supplementary figures are supplied in Additional file 2. Versioned analysis scripts, configuration templates, source manifests and execution instructions are supplied in Additional file 3 and are publicly available at https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics. No new restricted-access dataset was generated for this study. The reporting structure supports findable, accessible, interoperable and reusable data stewardship [61].
 
 ### Competing interests
 
@@ -850,7 +850,7 @@ Checked against the official BMC Medical Genomics Research Article and submissio
 
 ## Author sign-off required before upload
 
-- Public repository/DOI: no URL or DOI has been invented. Additional file 3 satisfies peer-review access to the executable code. If the authors deposit the same archive in GitHub/Zenodo before submission, replace the Additional file 3-only wording with the final public URL and DOI.
+- Public repository: https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics is public and has been verified. The archival DOI remains pending until the GitHub repository is enabled in Zenodo and the v1.0.0 release is published.
 - [ ] Funding: Lei Chen confirms that 2023CB008-34, ZZZC2023050, CZ001222 and LC2024009 supported this OA-OC study and that the no-role statement is accurate. Signature/date: __________
 - [x] Junhui Shi (2223727941@qq.com): final manuscript approval, authorship contribution and no competing interests confirmed by the authors.
 - [x] Mengxiang Liu (2877992646@qq.com): final manuscript approval, equal first authorship, authorship contribution and no competing interests confirmed by the authors.
