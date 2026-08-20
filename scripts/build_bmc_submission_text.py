@@ -592,16 +592,6 @@ def transform_main_body(text: str) -> str:
         flags=re.S,
     )
 
-    text = text.replace(
-        "Full parameters, source manifests and executable scripts are included in the reproducible project.",
-        "Full parameters, source manifests and executable scripts are included in the reproducible project."
-        "\n\n### Use of generative AI-assisted tools\n\n"
-        "Generative AI-assisted tools were used to support code development, English-language editing and document formatting. "
-        "All analyses were executed locally from version-controlled scripts, and numerical results were checked against source tables. "
-        "These tools did not qualify for authorship, determine the scientific conclusions or replace author verification. "
-        "The authors remain responsible for the manuscript and its supporting materials.",
-    )
-
     # Cite the BMC additional files in the order in which they first appear.
     table_replacements = {
         "Table S1": "Additional file 1: Table S1",
@@ -842,7 +832,6 @@ Checked against the official BMC Medical Genomics Research Article and submissio
 - Main manuscript formatted as a double-spaced, page-numbered and continuously line-numbered DOCX.
 - References follow the BMC Vancouver sequence, are numbered in order of first appearance, and all 69 DOI records have been verified against Crossref or DataCite.
 - Main Figures 1-7, Supplementary Figures S1-S5 and Additional files 1-3 are all cited in the manuscript.
-- Transparent statement on generative AI-assisted tools included in Methods.
 - GEO accessions are stated, and a peer-review-ready reproducible code archive is supplied as Additional file 3.
 - Each additional file is below the 20 MB limit; each main figure is a one-page composite PDF below 10 MB.
 - Main-figure titles and legends are retained in the manuscript; title and legend lengths meet the journal limits.

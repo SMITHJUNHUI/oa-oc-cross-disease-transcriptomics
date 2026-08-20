@@ -323,7 +323,6 @@ This working record maps the third-round recommendations to implemented changes.
 - Funding, competing interests, and CRediT contributions.
 - Public repository URL and archival DOI after deposition.
 - Final citation, language, statistical, and scientific approval.
-- Journal-required disclosure of AI-assisted editing, if applicable.
 """
 
 

@@ -316,7 +316,6 @@ def response_matrix() -> str:
 - Funding, competing interests, and CRediT contributions.
 - Public repository URL and archival DOI after deposition.
 - Final citation, statistical, language, and scientific approval.
-- Journal-required disclosure of AI-assisted editing, if applicable.
 """
 
 

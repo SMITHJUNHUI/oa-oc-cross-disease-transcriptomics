@@ -211,7 +211,7 @@ def get_crossref(doi: str) -> dict:
     for attempt in range(4):
         request = urllib.request.Request(
             url,
-            headers={"User-Agent": "CodexAcademicReferenceAudit/1.0 (mailto:research@example.com)"},
+            headers={"User-Agent": "AcademicReferenceAudit/1.0 (mailto:research@example.com)"},
         )
         try:
             with urllib.request.urlopen(request, timeout=30) as response:

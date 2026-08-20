@@ -294,7 +294,6 @@ The supplied Scientific Reports article was used as a visual and structural comp
 - Funding, competing interests, and CRediT contributions.
 - Public repository URL and archival DOI after deposition.
 - Final human scientific, statistical, citation, language, and policy approval.
-- Journal-required disclosure of AI-assisted editing, if applicable.
 """
 
 

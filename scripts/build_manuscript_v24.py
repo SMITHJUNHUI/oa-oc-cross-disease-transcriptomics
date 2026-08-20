@@ -396,7 +396,6 @@ This record maps the supplied RA-RF article and the subsequent reviewer-style re
 - Funding, competing interests, and CRediT contributions.
 - Public repository URL and archival DOI after deposition.
 - Final citation, language, statistical, and scientific approval.
-- Journal-required disclosure of AI-assisted editing, if applicable.
 """
 
 
