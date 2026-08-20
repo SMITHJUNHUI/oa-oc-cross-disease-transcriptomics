@@ -1,7 +1,7 @@
 {
   "title": "Reproducible analysis code for OA-OC cross-disease transcriptomics",
   "upload_type": "software",
-  "description": "Configuration-driven analysis code supporting the manuscript Shared molecular features between osteoarthritis and ovarian cancer revealed by multi-layer transcriptomic analyses. The repository contains versioned workflows, dependency records, tests and source-data accession metadata for public GEO datasets.",
+  "description": "Configuration-driven analysis code supporting the manuscript Multi-layer transcriptomics identifies shared molecular programs and a systemic G0S2 signal in osteoarthritis and ovarian cancer. The repository contains versioned workflows, dependency records, tests and source-data accession metadata for public GEO datasets.",
   "creators": [
     {
       "name": "Shi, Junhui",
@@ -26,7 +26,7 @@
   ],
   "access_right": "open",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "related_identifiers": [
     {
       "identifier": "10.5281/zenodo.21876011",

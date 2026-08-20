@@ -2,10 +2,10 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the archived release and the associated manuscript."
 title: "Reproducible analysis code for OA-OC cross-disease transcriptomics"
 type: software
-version: 1.0.0
-date-released: 2026-08-10
+version: 1.0.1
+date-released: 2026-08-20
 repository-code: "https://github.com/SMITHJUNHUI/oa-oc-cross-disease-transcriptomics"
-doi: 10.5281/zenodo.21876012
+doi: 10.5281/zenodo.21876011
 license: MIT
 authors:
   - family-names: Shi
